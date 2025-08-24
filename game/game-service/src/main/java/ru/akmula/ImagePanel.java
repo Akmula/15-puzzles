@@ -1,12 +1,13 @@
+package ru.akmula;
+
+import lombok.Setter;
+
 import javax.swing.*;
 import java.awt.*;
 
+@Setter
 public class ImagePanel extends JPanel {
     private Image image;
-
-    public void setImage(Image image) {
-        this.image = image;
-    }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);

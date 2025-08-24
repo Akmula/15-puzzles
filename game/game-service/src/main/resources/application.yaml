@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: game-service
+
+game-service:
+  path-images: game/game-service/src/main/resources/images/
+  title: Пятнашки
+  version: 1.0.0
+  icon: ${game-service.path-images}icon.png
+  logo: ${game-service.path-images}logo.jpg
+  images:
+    bg-about: ${game-service.path-images}bg-about.jpg
+    bg-game-field: ${game-service.path-images}bg-game-field.jpg
+    bg-menu: ${game-service.path-images}bg-menu.jpg
+    button-about: ${game-service.path-images}button-about.jpg
+    button-exit: ${game-service.path-images}button-exit.jpg
+    button-exit-level: ${game-service.path-images}button-exit-level.jpg
+    button-help: ${game-service.path-images}button-help.jpg
+    button-new-game: ${game-service.path-images}button-new-game.jpg
+    button-new-game-exit: ${game-service.path-images}button-new-game-exit.jpg
+    button-start: ${game-service.path-images}button-start.jpg
+    button-start-level: ${game-service.path-images}button-start-level.jpg

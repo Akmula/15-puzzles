@@ -1,3 +1,11 @@
+package ru.akmula;
+
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
+import ru.akmula.ImagePanel;
+import ru.akmula.config.GameProperties;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -6,7 +14,12 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.IOException;
 
+@Slf4j
+@Service
+@RequiredArgsConstructor
 public class Menu {
+
+    private final GameProperties gameProperties;
     JFrame MenuFrame;
     ImagePanel ipMenu;
     JPanel buttonPanel;
@@ -16,30 +29,31 @@ public class Menu {
     JButton jbExit;
     int n = 4;
 
-    Menu() {
+    public void init() {
         // ---------- Окно меню
-        MenuFrame = new JFrame("Пятнашки");
-        MenuFrame.setIconImage(Toolkit.getDefaultToolkit().getImage("icon.png"));
+        MenuFrame = new JFrame(gameProperties.getTitle());
+        MenuFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(gameProperties.getIcon()));
         MenuFrame.setBounds(550, 150, 300, 450);
         MenuFrame.setResizable(false);
         MenuFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         ipMenu = new ImagePanel();
         try {
-            ipMenu.setImage(ImageIO.read(new File("bg.jpg")));
+            ipMenu.setImage(ImageIO.read(new File(gameProperties.getImages().getBgMenu())));
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
+           // e.printStackTrace();
         }
         buttonPanel = new JPanel(new GridLayout(4, 1));
-        buttonPanel.add(jbStart = new JButton(new ImageIcon("start.jpg")));
-        buttonPanel.add(jbHelp = new JButton(new ImageIcon("help.jpg")));
-        buttonPanel.add(jbAbout = new JButton(new ImageIcon("about.jpg")));
-        buttonPanel.add(jbExit = new JButton(new ImageIcon("exit.jpg")));
+        buttonPanel.add(jbStart = new JButton(new ImageIcon(gameProperties.getImages().getButtonStart())));
+        buttonPanel.add(jbHelp = new JButton(new ImageIcon(gameProperties.getImages().getButtonHelp())));
+        buttonPanel.add(jbAbout = new JButton(new ImageIcon(gameProperties.getImages().getButtonAbout())));
+        buttonPanel.add(jbExit = new JButton(new ImageIcon(gameProperties.getImages().getButtonExit())));
         ipMenu.add(buttonPanel).setBounds(65, 102, 169, 196);
         ipMenu.setLayout(null);
         MenuFrame.add(ipMenu);
         MenuFrame.setVisible(true);
 
-        // ---------- Вешаем обработчики ----------
+        // ---------- Вешаем обработчики
         // ---------- Старт
         jbStart.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -67,9 +81,10 @@ public class Menu {
                 System.exit(0);
             }
         });
-    } // ---------- Конец конструктора
+    }
+// ---------- Конец конструктора
 
-    // ---------- Старт maim
+   /* // ---------- Старт maim
     public static void main(String[] args) {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
@@ -77,18 +92,18 @@ public class Menu {
                 new Menu();
             }
         });
-    } // ---------- Конец main
+    } // ---------- Конец main*/
 
     // --------- О программе ---------- //
     public void About() {
         String txt = "<html><center><H2>О программе</H2><br>" +
                 "v.1.00</center></html>";
         JFrame AboutFrame = new JFrame("О программе");
-        JLabel jlImage = new JLabel(new ImageIcon("15.jpg"));
+        JLabel jlImage = new JLabel(new ImageIcon(gameProperties.getLogo()));
         JLabel jlAbout = new JLabel(txt);
         jlAbout.setHorizontalAlignment(SwingConstants.CENTER);
         jlAbout.setVerticalAlignment(SwingConstants.TOP);
-        AboutFrame.setIconImage(Toolkit.getDefaultToolkit().getImage("icon.png"));
+        AboutFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(gameProperties.getIcon()));
         AboutFrame.setBounds(550, 150, 300, 450);
         AboutFrame.setLayout(new GridLayout(2, 1));
         AboutFrame.add(jlImage);
@@ -108,7 +123,7 @@ public class Menu {
         JLabel jlHelp = new JLabel(txt);
         jlHelp.setHorizontalAlignment(SwingConstants.CENTER);
         jlHelp.setVerticalAlignment(SwingConstants.TOP);
-        HelpFrame.setIconImage(Toolkit.getDefaultToolkit().getImage("icon.png"));
+        HelpFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(gameProperties.getIcon()));
         HelpFrame.setBounds(550, 150, 300, 450);
         HelpFrame.add(jlHelp);
         HelpFrame.setVisible(true);
@@ -128,17 +143,18 @@ public class Menu {
             jdLevel = new JDialog();
             jdLevel.setModal(true);
             jdLevel.setResizable(false);
-            jdLevel.setIconImage(Toolkit.getDefaultToolkit().getImage("icon.png"));
+            jdLevel.setIconImage(Toolkit.getDefaultToolkit().getImage(gameProperties.getIcon()));
             ipLevel = new ImagePanel();
             try {
-                ipLevel.setImage(ImageIO.read(new File("bg_field.jpg")));
+                ipLevel.setImage(ImageIO.read(new File(gameProperties.getImages().getBgAbout())));
             } catch (IOException e) {
-                e.printStackTrace();
+                log.error(e.getMessage());
+                //e.printStackTrace();
             }
             ipLevel.setLayout(null);
             ipLevel.add(jlLevel = new JLabel("Выберите сложность игры"));
-            ipLevel.add(jbStartGame = new JButton(new ImageIcon("start_l.jpg")));
-            ipLevel.add(jbCancel = new JButton(new ImageIcon("exit_l.jpg")));
+            ipLevel.add(jbStartGame = new JButton(new ImageIcon(gameProperties.getImages().getButtonStartLevel())));
+            ipLevel.add(jbCancel = new JButton(new ImageIcon(gameProperties.getImages().getButtonExitLevel())));
             ipLevel.add(jrb3x3 = new JRadioButton("Поле 3x3"));
             ipLevel.add(jrb4x4 = new JRadioButton("Поле 4x4", true));
             ipLevel.add(jrb5x5 = new JRadioButton("Поле  5x5"));
@@ -170,7 +186,7 @@ public class Menu {
                 public void actionPerformed(ActionEvent e) {
                     jdLevel.dispose();
                     MenuFrame.dispose();
-                    new Game(n).createField();
+                    new Game(n, gameProperties).createField();
                 }
             });
             jbCancel.addActionListener(new ActionListener() {

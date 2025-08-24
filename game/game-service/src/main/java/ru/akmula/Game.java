@@ -1,3 +1,9 @@
+package ru.akmula;
+
+import lombok.extern.slf4j.Slf4j;
+import ru.akmula.ImagePanel;
+import ru.akmula.config.GameProperties;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -7,6 +13,7 @@ import java.io.*;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
+@Slf4j
 public class Game implements ActionListener {
     JFrame GameFrame;
     ImagePanel ipGame;
@@ -22,24 +29,25 @@ public class Game implements ActionListener {
     int buttonClick;
     int n;
 
-    Game(int n) {
+    Game(int n, GameProperties gameProperties) {
         // ---------- Окно игры
-        GameFrame = new JFrame("Пятнашки");
-        GameFrame.setIconImage(Toolkit.getDefaultToolkit().getImage("icon.png"));
+        GameFrame = new JFrame(gameProperties.getTitle());
+        GameFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(gameProperties.getIcon()));
         GameFrame.setBounds(550, 150, 300, 450);
         GameFrame.setResizable(false);
         GameFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         ipGame = new ImagePanel();
         try {
-            ipGame.setImage(ImageIO.read(new File("bg.jpg")));
+            ipGame.setImage(ImageIO.read(new File(gameProperties.getImages().getBgMenu())));
         } catch (IOException e) {
-            e.printStackTrace();
+            log.error(e.getMessage());
+          //  e.printStackTrace();
         }
         ipGame.add(GameField = new JPanel());
         ipGame.setLayout(null);
-        ipGame.add(jbNewGame = new JButton(new ImageIcon("newGame.jpg")));
-        ipGame.add(jbExit = new JButton(new ImageIcon("newExit.jpg")));
-        ipGame.add(jbClick = new JButton("Пятнашки"));
+        ipGame.add(jbNewGame = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGame())));
+        ipGame.add(jbExit = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGameExit())));
+        ipGame.add(jbClick = new JButton(gameProperties.getTitle()));
         GameField.setBounds(25, 25, 250, 250);
         jbClick.setBounds(25, 280, 250, 35);
         jbNewGame.setBounds(25, 325, 120, 33);
@@ -70,7 +78,7 @@ public class Game implements ActionListener {
         jbExit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Menu();
+              //  new Menu();
                 GameFrame.dispose();
             }
         });
@@ -155,7 +163,7 @@ public class Game implements ActionListener {
         jbNo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Menu();
+               // new Menu();
                 EndGame.dispose();
                 GameFrame.dispose();
             }
