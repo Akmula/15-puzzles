@@ -3,7 +3,7 @@ package ru.akmula;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.ConfigurableApplicationContext;
+import ru.akmula.game.Menu;
 
 import java.awt.*;
 
@@ -14,7 +14,7 @@ public class GameApp {
         System.setProperty("java.awt.headless", "false");
         ApplicationContext context = SpringApplication.run(GameApp.class, args);
         EventQueue.invokeLater(() -> {
-            Menu mainFrame = context.getBean(Menu.class);
+            ru.akmula.game.Menu mainFrame = context.getBean(Menu.class);
            mainFrame.init();
         });
     }

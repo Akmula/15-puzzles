@@ -1,4 +1,4 @@
-package ru.akmula;
+package ru.akmula.game;
 
 import lombok.Setter;
 

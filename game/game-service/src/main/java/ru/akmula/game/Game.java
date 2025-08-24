@@ -1,20 +1,30 @@
-package ru.akmula;
+package ru.akmula.game;
 
 import lombok.extern.slf4j.Slf4j;
-import ru.akmula.ImagePanel;
 import ru.akmula.config.GameProperties;
+import ru.akmula.score.dto.NewScoreDto;
+import ru.akmula.score.dto.ScoreDto;
+import ru.akmula.score.service.ScoreService;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.*;
-import java.text.SimpleDateFormat;
-import java.util.*;
+import java.io.File;
+import java.io.IOException;
+import java.time.Duration;
+import java.time.Instant;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Collections;
+import java.util.LinkedList;
 
 @Slf4j
 public class Game implements ActionListener {
+
+    private ScoreService scoreService;
     JFrame GameFrame;
     ImagePanel ipGame;
     JButton jbNewGame;
@@ -24,12 +34,17 @@ public class Game implements ActionListener {
     JPanel GameField;
     JButton[][] jbArray;
     Font bFont;
-    //  String recordData;
-    //  int recordClick;
     int buttonClick;
     int n;
 
-    Game(int n, GameProperties gameProperties) {
+    Instant start;
+
+// Здесь должен быть ваш код
+
+    Instant end;
+
+    Game(int n, GameProperties gameProperties, ScoreService scoreService) {
+        this.scoreService = scoreService;
         // ---------- Окно игры
         GameFrame = new JFrame(gameProperties.getTitle());
         GameFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(gameProperties.getIcon()));
@@ -100,6 +115,7 @@ public class Game implements ActionListener {
             for (int col = 0; col < n; col++) {
                 jbArray[row][col].setText(String.valueOf(ll.poll()));
             }
+        start = Instant.now();
     }
 
     // ---------- Условие победы ---------- //
@@ -203,59 +219,29 @@ public class Game implements ActionListener {
                         setTextB(row, col + 1);
                     }
                     if (victory()) {
-                        scoresWriteReader(0);
+                        end = Instant.now();
+                        saveScore(buttonClick);
                     }
                     return;
                 }
             }
     }
 
-    public void scoresWriteReader(int recordClick) {
-        Date today = new Date();
-        SimpleDateFormat sdf = new SimpleDateFormat("dd.MM.yyyy");
-        String formattedDate = sdf.format(today);
-        ArrayList<Scores> scores = new ArrayList<>();
-        String aLine;
-        try (
-                FileInputStream fin = new FileInputStream("Scores.dat");
-                BufferedReader br = new BufferedReader(new InputStreamReader(fin))) {
-            while ((aLine = br.readLine()) != null) {
-                StringTokenizer st = new StringTokenizer(aLine, " | ");
-                int level = Integer.parseInt(st.nextToken());
-                int score = Integer.parseInt(st.nextToken());
-                String dataScore = st.nextToken();
-                scores.add(new Scores(level, score, dataScore));
-            }
-            for (Scores sc : scores) {
-                if (sc.level == n) {
-                    recordClick = sc.score;
-                    String recordData = sc.dataScore;
-                    congratulations(recordData, recordClick);
-                }
-            }
-            if (buttonClick < recordClick) {
-                scores.set(n - 3, new Scores(n, buttonClick, formattedDate));
-                try (FileWriter myFile = new FileWriter("Scores.dat");
-                     PrintWriter printMyFile = new PrintWriter(myFile)) {
-                    for (Scores sc : scores) {
-                        printMyFile.println(sc.level + " | " + sc.score + " | " + sc.dataScore);
-                    }
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    public void saveScore(int buttonClick) {
+        ScoreDto scoreDto = scoreService.getScoreByLevel((long) n);
 
-    public static class Scores {
-        int level;
-        int score;
-        String dataScore;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("mm:ss:ms");
+        Duration timeElapsed = Duration.between(start, end);
+        LocalDateTime dateTime = LocalDateTime.now();
+        NewScoreDto dto = NewScoreDto.builder()
+                .level((long) n)
+                .score((long) buttonClick)
+                .gameTime(LocalTime.ofSecondOfDay(timeElapsed.getSeconds()).format(formatter))
+                .created(dateTime)
+                .build();
+        scoreService.addScore(dto);
 
-        Scores(int l, int s, String d) {
-            level = l;
-            score = s;
-            dataScore = d;
-        }
+        congratulations(scoreDto.getScore().toString(), buttonClick);
+
     }
 }
