@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/game/game-service/src/main/resources/shema.sql" value="63a75ac1-87b4-4e5f-a3cf-82b745c21f36" />
+  </component>
+</project>

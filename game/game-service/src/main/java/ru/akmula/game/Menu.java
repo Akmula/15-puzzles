@@ -1,10 +1,10 @@
-package ru.akmula;
+package ru.akmula.game;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import ru.akmula.ImagePanel;
 import ru.akmula.config.GameProperties;
+import ru.akmula.score.service.ScoreService;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -20,6 +20,8 @@ import java.io.IOException;
 public class Menu {
 
     private final GameProperties gameProperties;
+    private final ScoreService scoreService;
+
     JFrame MenuFrame;
     ImagePanel ipMenu;
     JPanel buttonPanel;
@@ -30,6 +32,7 @@ public class Menu {
     int n = 4;
 
     public void init() {
+        log.info("Создаем фрейм!");
         // ---------- Окно меню
         MenuFrame = new JFrame(gameProperties.getTitle());
         MenuFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(gameProperties.getIcon()));
@@ -186,7 +189,7 @@ public class Menu {
                 public void actionPerformed(ActionEvent e) {
                     jdLevel.dispose();
                     MenuFrame.dispose();
-                    new Game(n, gameProperties).createField();
+                    new Game(n, gameProperties, scoreService).createField();
                 }
             });
             jbCancel.addActionListener(new ActionListener() {
