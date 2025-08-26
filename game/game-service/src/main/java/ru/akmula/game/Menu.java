@@ -25,11 +25,11 @@ public class Menu {
     JFrame MenuFrame;
     ImagePanel ipMenu;
     JPanel buttonPanel;
-    JButton jbStart;
-    JButton jbAbout;
-    JButton jbHelp;
-    JButton jbExit;
-    int n = 4;
+    JButton startButton;
+    JButton aboutButton;
+    JButton helpButton;
+    JButton exitButton;
+    int level = 4;
 
     public void init() {
         log.info("Создаем фрейм!");
@@ -40,17 +40,18 @@ public class Menu {
         MenuFrame.setResizable(false);
         MenuFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         ipMenu = new ImagePanel();
+
         try {
             ipMenu.setImage(ImageIO.read(new File(gameProperties.getImages().getBgMenu())));
         } catch (IOException e) {
             log.error(e.getMessage());
-           // e.printStackTrace();
         }
+
         buttonPanel = new JPanel(new GridLayout(4, 1));
-        buttonPanel.add(jbStart = new JButton(new ImageIcon(gameProperties.getImages().getButtonStart())));
-        buttonPanel.add(jbHelp = new JButton(new ImageIcon(gameProperties.getImages().getButtonHelp())));
-        buttonPanel.add(jbAbout = new JButton(new ImageIcon(gameProperties.getImages().getButtonAbout())));
-        buttonPanel.add(jbExit = new JButton(new ImageIcon(gameProperties.getImages().getButtonExit())));
+        buttonPanel.add(startButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonStart())));
+        buttonPanel.add(helpButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonHelp())));
+        buttonPanel.add(aboutButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonAbout())));
+        buttonPanel.add(exitButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonExit())));
         ipMenu.add(buttonPanel).setBounds(65, 102, 169, 196);
         ipMenu.setLayout(null);
         MenuFrame.add(ipMenu);
@@ -58,44 +59,36 @@ public class Menu {
 
         // ---------- Вешаем обработчики
         // ---------- Старт
-        jbStart.addActionListener(new ActionListener() {
+        startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 new LevelChange();
             }
         });
+
         // ---------- Помощь
-        jbHelp.addActionListener(new ActionListener() {
+        helpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Help();
             }
         });
+
         // ---------- О программе
-        jbAbout.addActionListener(new ActionListener() {
+        aboutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 About();
             }
         });
+
         // ---------- Выход
-        jbExit.addActionListener(new ActionListener() {
+        exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
     }
-// ---------- Конец конструктора
-
-   /* // ---------- Старт maim
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new Menu();
-            }
-        });
-    } // ---------- Конец main*/
 
     // --------- О программе ---------- //
     public void About() {
@@ -114,7 +107,7 @@ public class Menu {
         AboutFrame.setVisible(true);
     }
 
-    // --------- Помошь ---------- //
+    // --------- Помощь ---------- //
     public void Help() {
         String txt = "<html><center><H2>Помощь</H2><br>" +
                 "Цель игры — выстроить или переместить костяшки слева на право по возрастанию в коробке и тем самым " +
@@ -152,7 +145,6 @@ public class Menu {
                 ipLevel.setImage(ImageIO.read(new File(gameProperties.getImages().getBgAbout())));
             } catch (IOException e) {
                 log.error(e.getMessage());
-                //e.printStackTrace();
             }
             ipLevel.setLayout(null);
             ipLevel.add(jlLevel = new JLabel("Выберите сложность игры"));
@@ -189,7 +181,7 @@ public class Menu {
                 public void actionPerformed(ActionEvent e) {
                     jdLevel.dispose();
                     MenuFrame.dispose();
-                    new Game(n, gameProperties, scoreService).createField();
+                    new Game(level, gameProperties, scoreService).createField();
                 }
             });
             jbCancel.addActionListener(new ActionListener() {
@@ -204,9 +196,9 @@ public class Menu {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-            if (jrb3x3.isSelected()) n = 3;
-            else if (jrb4x4.isSelected()) n = 4;
-            else n = 5;
+            if (jrb3x3.isSelected()) level = 3;
+            else if (jrb4x4.isSelected()) level = 4;
+            else level = 5;
         }
     }
 }
