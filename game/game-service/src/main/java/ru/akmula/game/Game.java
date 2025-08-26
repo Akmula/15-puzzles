@@ -24,26 +24,23 @@ import java.util.LinkedList;
 @Slf4j
 public class Game implements ActionListener {
 
-    private ScoreService scoreService;
+    private final ScoreService scoreService;
     JFrame GameFrame;
     ImagePanel ipGame;
-    JButton jbNewGame;
-    JButton jbExit;
-    JButton jbClick;
+    JButton newGameButton;
+    JButton exitButton;
+    JButton clickButton;
     JButton pressButton;
     JPanel GameField;
-    JButton[][] jbArray;
-    Font bFont;
+    JButton[][] buttonsArray;
+    Font font;
     int buttonClick;
-    int n;
+    int level;
 
-    Instant start;
+    Instant startGame;
+    Instant endGame;
 
-// Здесь должен быть ваш код
-
-    Instant end;
-
-    Game(int n, GameProperties gameProperties, ScoreService scoreService) {
+    Game(int level, GameProperties gameProperties, ScoreService scoreService) {
         this.scoreService = scoreService;
         // ---------- Окно игры
         GameFrame = new JFrame(gameProperties.getTitle());
@@ -60,37 +57,37 @@ public class Game implements ActionListener {
         }
         ipGame.add(GameField = new JPanel());
         ipGame.setLayout(null);
-        ipGame.add(jbNewGame = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGame())));
-        ipGame.add(jbExit = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGameExit())));
-        ipGame.add(jbClick = new JButton(gameProperties.getTitle()));
+        ipGame.add(newGameButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGame())));
+        ipGame.add(exitButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGameExit())));
+        ipGame.add(clickButton = new JButton(gameProperties.getTitle()));
         GameField.setBounds(25, 25, 250, 250);
-        jbClick.setBounds(25, 280, 250, 35);
-        jbNewGame.setBounds(25, 325, 120, 33);
-        jbExit.setBounds(155, 325, 120, 33);
-        jbClick.setEnabled(false);
+        clickButton.setBounds(25, 280, 250, 35);
+        newGameButton.setBounds(25, 325, 120, 33);
+        exitButton.setBounds(155, 325, 120, 33);
+        clickButton.setEnabled(false);
         GameFrame.add(ipGame);
         GameFrame.setVisible(true);
-        bFont = new Font("Verdana", Font.BOLD, 16 - n);
+        font = new Font("Verdana", Font.BOLD, 16 - level);
 
         // ---------- Создаем игровое поле
-        jbArray = new JButton[n][n];
-        this.n = n;
-        for (int row = 0; row < n; row++)
-            for (int col = 0; col < n; col++) {
-                jbArray[row][col] = new JButton();
-                jbArray[row][col].setFont(bFont);
-                jbArray[row][col].setFocusable(false);
-                jbArray[row][col].addActionListener(this);
-                GameField.add(jbArray[row][col]);
+        buttonsArray = new JButton[level][level];
+        this.level = level;
+        for (int row = 0; row < level; row++)
+            for (int col = 0; col < level; col++) {
+                buttonsArray[row][col] = new JButton();
+                buttonsArray[row][col].setFont(font);
+                buttonsArray[row][col].setFocusable(false);
+                buttonsArray[row][col].addActionListener(this);
+                GameField.add(buttonsArray[row][col]);
             }
         // ---------- Вешаем обработчики
-        jbNewGame.addActionListener(new ActionListener() {
+        newGameButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 createField();
             }
         });
-        jbExit.addActionListener(new ActionListener() {
+        exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
               //  new Menu();
@@ -101,30 +98,30 @@ public class Game implements ActionListener {
 
     // ---------- Создание поля
     public void createField() {
-        int[] field = new int[n * n];
+        int[] field = new int[level * level];
         LinkedList<String> ll = new LinkedList<>();
-        GameField.setLayout(new GridLayout(n, n));
-        buttonClick = 0;
-        jbClick.setText("Вы не сделали хода");
+        GameField.setLayout(new GridLayout(level, level));
+        buttonClick = 1;
+        clickButton.setText("Вы не сделали хода");
         for (int i = 1; i < field.length; i++) {
             ll.add(String.valueOf(i));
         }
         ll.add("");
         Collections.shuffle(ll);
-        for (int row = 0; row < n; row++)
-            for (int col = 0; col < n; col++) {
-                jbArray[row][col].setText(String.valueOf(ll.poll()));
+        for (int row = 0; row < level; row++)
+            for (int col = 0; col < level; col++) {
+                buttonsArray[row][col].setText(String.valueOf(ll.poll()));
             }
-        start = Instant.now();
+        startGame = Instant.now();
     }
 
     // ---------- Условие победы ---------- //
     public boolean victory() {
         int count = 1;
-        for (int row = 0; row < n; row++) {
-            for (int col = 0; col < n; col++) {
+        for (int row = 0; row < level; row++) {
+            for (int col = 0; col < level; col++) {
                 String victoryText = String.valueOf(count);
-                if (!jbArray[row][col].getText().equals(victoryText) && count < n * n)
+                if (!buttonsArray[row][col].getText().equals(victoryText) && count < level * level)
                     return false;
                 count++;
             }
@@ -132,29 +129,26 @@ public class Game implements ActionListener {
         return true;
     }
 
-    public void setText() {
-        String txt;
-        if (buttonClick == 0) {
-            txt = "ход";
-        } else if (buttonClick == 1 || buttonClick == 2 || buttonClick == 3) {
-            txt = "хода";
+    private static String getWord(int buttonClick) {
+        int remains = buttonClick % 100;
+
+        if (remains > 9 && remains < 20) {
+            return buttonClick + " ходов";
         } else {
-            txt = "ходов";
+            remains = remains % 10;
+            if (remains == 1) {
+                return buttonClick + " ход";
+            } else if (remains > 1 && remains < 5) {
+                return buttonClick + " хода";
+            } else {
+                return buttonClick + " ходов";
+            }
         }
-        jbClick.setText("Вы сделали " + String.valueOf(buttonClick + 1) + " " + txt + "!");
     }
 
-    public void congratulations(String recordData, int recordClick) {
-        String recordText;
-        if (buttonClick < recordClick) {
-            recordText = "Вы установили рекорд!";
-        } else recordText = "Рекорд " + recordClick + " ходов!<br>" +
-                recordData;
-        String txt = "<html><center><H2>Поздравляем!</H2><br>" +
-                "Вы выиграли!<br>" +
-                "Вы сделали: " + buttonClick + " ходов!<br>"
-                + recordText + ". <br>" +
-                "Хотите еще сыграть?</center></html>";
+    private void congratulations(String recordData, int recordClick) {
+        String txt = getString(recordData, recordClick);
+
         final JDialog EndGame = new JDialog(GameFrame, true);
         JButton jbYes = new JButton("Да");
         JButton jbNo = new JButton("Нет");
@@ -169,6 +163,7 @@ public class Game implements ActionListener {
         jlEndGame.setBounds(10, 10, 270, 160);
         jbYes.setBounds(10, 180, 120, 30);
         jbNo.setBounds(160, 180, 120, 30);
+
         jbYes.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -176,6 +171,7 @@ public class Game implements ActionListener {
                 EndGame.dispose();
             }
         });
+
         jbNo.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -188,27 +184,43 @@ public class Game implements ActionListener {
         EndGame.setVisible(true);
     }
 
+    private String getString(String record, int recordClick) {
+        String recordText = "";
+
+        if (!record.equals("0")) {
+            if (buttonClick < recordClick) {
+                recordText = "Вы установили рекорд!";
+            } else recordText = "Рекорд " + record + " ходов!<br>";
+        }
+
+        return "<html><center><H2>Поздравляем!</H2><br>" +
+               "Вы выиграли!<br>" +
+               "Вы сделали: " + buttonClick + " ходов!<br>"
+               + recordText + "<br>" +
+               "Хотите еще сыграть?</center></html>";
+    }
+
     // ---------- Ход игры --------- //
     private boolean isEmptyButton(int row1, int col1) {
-        if (row1 < 0 || row1 >= n)
+        if (row1 < 0 || row1 >= level)
             return false;
-        if (col1 < 0 || col1 >= n)
+        if (col1 < 0 || col1 >= level)
             return false;
-        return jbArray[row1][col1].getText().equals("");
+        return buttonsArray[row1][col1].getText().isEmpty();
     }
 
     private void setTextB(int row1, int col1) {
-        jbArray[row1][col1].setText(pressButton.getText());
+        buttonsArray[row1][col1].setText(pressButton.getText());
         pressButton.setText("");
         buttonClick++;
     }
 
     public void actionPerformed(ActionEvent e) {
         pressButton = (JButton) e.getSource();
-        for (int row = 0; row < jbArray.length; row++)
-            for (int col = 0; col < jbArray[row].length; col++) {
-                if (pressButton == jbArray[row][col]) {
-                    setText();
+        for (int row = 0; row < buttonsArray.length; row++)
+            for (int col = 0; col < buttonsArray[row].length; col++) {
+                if (pressButton == buttonsArray[row][col]) {
+                    clickButton.setText("Вы сделали " + getWord(buttonClick) + "!");
                     if (isEmptyButton(row - 1, col)) {
                         setTextB(row - 1, col);
                     } else if (isEmptyButton(row + 1, col)) {
@@ -219,7 +231,7 @@ public class Game implements ActionListener {
                         setTextB(row, col + 1);
                     }
                     if (victory()) {
-                        end = Instant.now();
+                        endGame = Instant.now();
                         saveScore(buttonClick);
                     }
                     return;
@@ -227,14 +239,14 @@ public class Game implements ActionListener {
             }
     }
 
-    public void saveScore(int buttonClick) {
-        ScoreDto scoreDto = scoreService.getScoreByLevel((long) n);
+    private void saveScore(int buttonClick) {
+        ScoreDto scoreDto = scoreService.getScoreByLevel((long) level);
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("mm:ss:ms");
-        Duration timeElapsed = Duration.between(start, end);
+        Duration timeElapsed = Duration.between(startGame, endGame);
         LocalDateTime dateTime = LocalDateTime.now();
         NewScoreDto dto = NewScoreDto.builder()
-                .level((long) n)
+                .level((long) level)
                 .score((long) buttonClick)
                 .gameTime(LocalTime.ofSecondOfDay(timeElapsed.getSeconds()).format(formatter))
                 .created(dateTime)

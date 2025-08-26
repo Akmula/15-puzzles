@@ -11,7 +11,6 @@ import ru.akmula.score.mapper.ScoreMapper;
 import ru.akmula.score.repository.ScoreRepository;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Slf4j
 @Service
@@ -23,24 +22,27 @@ public class ScoreServiceImpl implements ScoreService {
 
     @Override
     @Transactional
-    public Score addScore(NewScoreDto dto) {
+    public void addScore(NewScoreDto dto) {
         log.info("Добавление записи о результатах игры в базу!");
 
         Score score = scoreRepository.save(ScoreMapper.mapToScore(dto));
 
         log.info("Добавлена запись: {}", score);
-        return score;
     }
 
     @Override
     public ScoreDto getScoreByLevel(Long level) {
+        log.info("Получение рекорда с уровнем: {}!", level);
 
-        List<Score> scores = scoreRepository.findAllByLevelOrderByScoreAsc(level);
+        Score score = scoreRepository.findFirstByLevelOrderByScoreAsc(level);
 
-        if (scores.isEmpty()) {
+        log.info("Получен рекорд: {}!", score);
+
+        if (score == null) {
+            log.info("Рекорд отсутствует! Создаем пустышку!");
             return new ScoreDto(0L, 0L, "0", LocalDateTime.now());
         }
 
-        return ScoreMapper.mapToScoreDto(scores.get(0));
+        return ScoreMapper.mapToScoreDto(score);
     }
 }

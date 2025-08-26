@@ -6,6 +6,7 @@ spring:
     init:
       mode: always
       continue-on-error: true
+
   # в jdbc-url укажите, что данные нужно сохранять в файл
   datasource:
     url: jdbc:h2:file:./db/scores-db
@@ -29,7 +30,7 @@ logging:
 game-service:
   path-images: game/game-service/src/main/resources/images/
   title: Пятнашки
-  version: 1.0.1
+  version: 1.1.0
   icon: ${game-service.path-images}icon.png
   logo: ${game-service.path-images}logo.jpg
   images:

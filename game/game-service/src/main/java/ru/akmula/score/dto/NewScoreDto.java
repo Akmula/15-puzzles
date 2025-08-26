@@ -31,5 +31,4 @@ public class NewScoreDto {
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
     @NotNull(message = "Дата и время игры не может быть пустым!")
     LocalDateTime created;
-
 }

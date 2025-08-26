@@ -6,8 +6,6 @@ import lombok.experimental.FieldDefaults;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Map;
-
 @Data
 @Configuration
 @FieldDefaults(level = AccessLevel.PRIVATE)
@@ -18,13 +16,11 @@ public class GameProperties {
     String version;
     String icon;
     String logo;
-
     Images images;
 
     @Data
     public static class Images {
 
-      //  private Map<String, String> images;
         String bgAbout;
         String bgGameField;
         String bgMenu;
@@ -39,6 +35,4 @@ public class GameProperties {
         String buttonStartLevel;
 
     }
-
-
 }

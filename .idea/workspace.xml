@@ -4,60 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="205c1bdf-1051-4898-8b69-83650b98a3be" name="Changes" comment="1. Добавить lombok.config&#10;2. Добавить checkstyle.xml&#10;3. Добавить suppressions.xml&#10;4. Добавить README.md">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/data_source_mapping.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/dto/NewScoreDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/dto/ScoreDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/entity/Score.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/mapper/ScoreMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/repository/ScoreRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/service/ScoreService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/service/ScoreServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/resources/shema.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="89737589-0b87-4f83-9d12-3f11679acfbb" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/GameApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/GameApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/ImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/ImagePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/config/GameProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/config/GameProperties.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/dto/NewScoreDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/dto/NewScoreDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/repository/ScoreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/repository/ScoreRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/service/ScoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/service/ScoreService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/service/ScoreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/service/ScoreServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Game$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Game$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Game$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Game$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Game$Scores.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Game.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/GameApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/GameApp.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/ImagePanel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Menu$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Menu$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Menu$3.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Menu$4.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Menu$LevelChange$1.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Menu$LevelChange$2.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Menu$LevelChange.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/Menu.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/game/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/GameApp.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/config/GameProperties$Images.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/config/GameProperties.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -67,46 +32,28 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory">{
-  &quot;lastFilter&quot;: {
-    &quot;state&quot;: &quot;OPEN&quot;,
-    &quot;assignee&quot;: &quot;Akmula&quot;
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Akmula"
   }
-}</component>
-  <component name="GithubPullRequestsUISettings">{
-  &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;https://github.com/Akmula/15.git&quot;,
-    &quot;accountId&quot;: &quot;f0e31fc9-e18b-44c1-a409-cbd17b1e64ed&quot;
-  },
-  &quot;recentNewPullRequestHead&quot;: {
-    &quot;server&quot;: {
-      &quot;useHttp&quot;: false,
-      &quot;host&quot;: &quot;github.com&quot;,
-      &quot;port&quot;: null,
-      &quot;suffix&quot;: null
-    },
-    &quot;owner&quot;: &quot;Akmula&quot;,
-    &quot;repository&quot;: &quot;15&quot;
-  }
-}</component>
-  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
-  <component name="KubernetesApiProvider"><![CDATA[{
-  "isMigrated": true
 }]]></component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5
-}</component>
-  <component name="ProjectId" id="31hVXjU3M0fgpD06FkbhHLVylsV" />
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Akmula/15.git",
+    "accountId": "f0e31fc9-e18b-44c1-a409-cbd17b1e64ed"
+  }
+}]]></component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
+  <component name="ProjectId" id="31pjkBWnEk6CpZ3t0dttYd29BOM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "Application.Menu.executor": "Run",
     "Maven.15-puzzle [clean].executor": "Run",
     "Maven.15-puzzle [compile].executor": "Run",
     "RequestMappingsPanelOrder0": "0",
@@ -115,54 +62,19 @@
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "Spring Boot.GameApp.executor": "Run",
-    "git-widget-placeholder": "create-score",
+    "git-widget-placeholder": "minor-edits",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "F:/IdeaProjects/15-puzzles",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "F:/IdeaProjects/15/game/score-service/src/main/java/ru/akmula/Main.java",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.52068967",
-    "settings.editor.selected.configurable": "MavenSettings",
     "to.speed.mode.migration.done": "true",
     "vue.rearranger.settings.migration": "true"
-  },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "h2"
-    ],
-    "com.intellij.ide.scratch.LRUPopupBuilder$1/": [
-      "H2"
-    ]
   }
 }]]></component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\IdeaProjects\15" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\IdeaProjects\15\game\game-service\src\main\resources\images" />
-      <recent name="F:\IdeaProjects\15\game\game-service\src\main\java\ru\akmula" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="ru.akmula.score.dto" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Spring Boot.GameApp">
-    <configuration name="Menu" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Menu" />
-      <module name="15-puzzle" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager">
     <configuration name="GameApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="game-service" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="ru.akmula.GameApp" />
@@ -179,7 +91,6 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.GameApp" />
-        <item itemvalue="Application.Menu" />
       </list>
     </recent_temporary>
   </component>
@@ -193,67 +104,17 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="205c1bdf-1051-4898-8b69-83650b98a3be" name="Changes" comment="" />
-      <created>1755976335478</created>
+      <changelist id="89737589-0b87-4f83-9d12-3f11679acfbb" name="Changes" comment="" />
+      <created>1756228066436</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1755976335478</updated>
-      <workItem from="1755976336384" duration="75000" />
-      <workItem from="1755976426964" duration="1787000" />
-      <workItem from="1755982349848" duration="2057000" />
-      <workItem from="1756028837140" duration="9319000" />
-      <workItem from="1756041235332" duration="13827000" />
+      <updated>1756228066436</updated>
+      <workItem from="1756228083664" duration="8364000" />
     </task>
-    <task id="LOCAL-00001" summary="1. Перевести на Spring Boot">
-      <option name="closed" value="true" />
-      <created>1756039663260</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1756039663260</updated>
-    </task>
-    <task id="LOCAL-00002" summary="1. Добавить lombok.config&#10;2. Добавить checkstyle.xml&#10;3. Добавить suppressions.xml&#10;4. Добавить README.md">
-      <option name="closed" value="true" />
-      <created>1756040869119</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1756040869119</updated>
-    </task>
-    <task id="LOCAL-00003" summary="1. Добавить lombok.config&#10;2. Добавить checkstyle.xml&#10;3. Добавить suppressions.xml&#10;4. Добавить README.md">
-      <option name="closed" value="true" />
-      <created>1756040880223</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1756040880223</updated>
-    </task>
-    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="1. Перевести на Spring Boot" />
-    <MESSAGE value="1. Добавить lombok.config&#10;2. Добавить checkstyle.xml&#10;3. Добавить suppressions.xml&#10;4. Добавить README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="1. Добавить lombok.config&#10;2. Добавить checkstyle.xml&#10;3. Добавить suppressions.xml&#10;4. Добавить README.md" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/game/src/main/java/ru/akmula/GameApp.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/game/score-service/src/main/java/ru/akmula/Main.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
