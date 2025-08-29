@@ -6,13 +6,10 @@ import ru.akmula.score.dto.NewScoreDto;
 import ru.akmula.score.dto.ScoreDto;
 import ru.akmula.score.service.ScoreService;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 import java.time.Duration;
 import java.time.Instant;
 import java.time.LocalDateTime;
@@ -26,7 +23,7 @@ public class Game implements ActionListener {
 
     private final ScoreService scoreService;
     JFrame GameFrame;
-    ImagePanel ipGame;
+    ImagePanel backgroundGame;
     JButton newGameButton;
     JButton exitButton;
     JButton clickButton;
@@ -48,24 +45,20 @@ public class Game implements ActionListener {
         GameFrame.setBounds(550, 150, 300, 450);
         GameFrame.setResizable(false);
         GameFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        ipGame = new ImagePanel();
-        try {
-            ipGame.setImage(ImageIO.read(new File(gameProperties.getImages().getBgMenu())));
-        } catch (IOException e) {
-            log.error(e.getMessage());
-          //  e.printStackTrace();
-        }
-        ipGame.add(GameField = new JPanel());
-        ipGame.setLayout(null);
-        ipGame.add(newGameButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGame())));
-        ipGame.add(exitButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGameExit())));
-        ipGame.add(clickButton = new JButton(gameProperties.getTitle()));
+
+        backgroundGame = new Background(gameProperties.getImages().getBgMenu()).getImagePanel();
+
+        backgroundGame.add(GameField = new JPanel());
+        backgroundGame.setLayout(null);
+        backgroundGame.add(newGameButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGame())));
+        backgroundGame.add(exitButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGameExit())));
+        backgroundGame.add(clickButton = new JButton(gameProperties.getTitle()));
         GameField.setBounds(25, 25, 250, 250);
         clickButton.setBounds(25, 280, 250, 35);
         newGameButton.setBounds(25, 325, 120, 33);
         exitButton.setBounds(155, 325, 120, 33);
         clickButton.setEnabled(false);
-        GameFrame.add(ipGame);
+        GameFrame.add(backgroundGame);
         GameFrame.setVisible(true);
         font = new Font("Verdana", Font.BOLD, 16 - level);
 

@@ -6,13 +6,10 @@ import org.springframework.stereotype.Service;
 import ru.akmula.config.GameProperties;
 import ru.akmula.score.service.ScoreService;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
-import java.io.IOException;
 
 @Slf4j
 @Service
@@ -23,7 +20,7 @@ public class Menu {
     private final ScoreService scoreService;
 
     JFrame MenuFrame;
-    ImagePanel ipMenu;
+    ImagePanel backgroundMainFrame;
     JPanel buttonPanel;
     JButton startButton;
     JButton aboutButton;
@@ -39,22 +36,17 @@ public class Menu {
         MenuFrame.setBounds(550, 150, 300, 450);
         MenuFrame.setResizable(false);
         MenuFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        ipMenu = new ImagePanel();
 
-        try {
-            ipMenu.setImage(ImageIO.read(new File(gameProperties.getImages().getBgMenu())));
-        } catch (IOException e) {
-            log.error(e.getMessage());
-        }
+        backgroundMainFrame = new Background(gameProperties.getImages().getBgMenu()).getImagePanel();
 
         buttonPanel = new JPanel(new GridLayout(4, 1));
         buttonPanel.add(startButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonStart())));
         buttonPanel.add(helpButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonHelp())));
         buttonPanel.add(aboutButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonAbout())));
         buttonPanel.add(exitButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonExit())));
-        ipMenu.add(buttonPanel).setBounds(65, 102, 169, 196);
-        ipMenu.setLayout(null);
-        MenuFrame.add(ipMenu);
+        backgroundMainFrame.add(buttonPanel).setBounds(65, 102, 169, 196);
+        backgroundMainFrame.setLayout(null);
+        MenuFrame.add(backgroundMainFrame);
         MenuFrame.setVisible(true);
 
         // ---------- Вешаем обработчики
@@ -93,7 +85,7 @@ public class Menu {
     // --------- О программе ---------- //
     public void About() {
         String txt = "<html><center><H2>О программе</H2><br>" +
-                "v.1.00</center></html>";
+                     "v.1.00</center></html>";
         JFrame AboutFrame = new JFrame("О программе");
         JLabel jlImage = new JLabel(new ImageIcon(gameProperties.getLogo()));
         JLabel jlAbout = new JLabel(txt);
@@ -110,11 +102,11 @@ public class Menu {
     // --------- Помощь ---------- //
     public void Help() {
         String txt = "<html><center><H2>Помощь</H2><br>" +
-                "Цель игры — выстроить или переместить костяшки слева на право по возрастанию в коробке и тем самым " +
-                "добиться упорядочивания их по номерам. При этом ставится дополнительная задача - сделать как можно " +
-                "меньше ходов.<br>" +
-                "Для перемещения костяшки нажмите на ту, которую необходимо переместить, и она автоматически " +
-                "переместится.</center></html>";
+                     "Цель игры — выстроить или переместить костяшки слева на право по возрастанию в коробке и тем самым " +
+                     "добиться упорядочивания их по номерам. При этом ставится дополнительная задача - сделать как можно " +
+                     "меньше ходов.<br>" +
+                     "Для перемещения костяшки нажмите на ту, которую необходимо переместить, и она автоматически " +
+                     "переместится.</center></html>";
         JFrame HelpFrame = new JFrame("Справка");
         JLabel jlHelp = new JLabel(txt);
         jlHelp.setHorizontalAlignment(SwingConstants.CENTER);
@@ -128,7 +120,7 @@ public class Menu {
     public class LevelChange implements ActionListener {
         JDialog jdLevel;
         JLabel jlLevel;
-        ImagePanel ipLevel;
+        ImagePanel backgroundLevelChange;
         JButton jbStartGame;
         JButton jbCancel;
         JRadioButton jrb3x3;
@@ -140,19 +132,15 @@ public class Menu {
             jdLevel.setModal(true);
             jdLevel.setResizable(false);
             jdLevel.setIconImage(Toolkit.getDefaultToolkit().getImage(gameProperties.getIcon()));
-            ipLevel = new ImagePanel();
-            try {
-                ipLevel.setImage(ImageIO.read(new File(gameProperties.getImages().getBgAbout())));
-            } catch (IOException e) {
-                log.error(e.getMessage());
-            }
-            ipLevel.setLayout(null);
-            ipLevel.add(jlLevel = new JLabel("Выберите сложность игры"));
-            ipLevel.add(jbStartGame = new JButton(new ImageIcon(gameProperties.getImages().getButtonStartLevel())));
-            ipLevel.add(jbCancel = new JButton(new ImageIcon(gameProperties.getImages().getButtonExitLevel())));
-            ipLevel.add(jrb3x3 = new JRadioButton("Поле 3x3"));
-            ipLevel.add(jrb4x4 = new JRadioButton("Поле 4x4", true));
-            ipLevel.add(jrb5x5 = new JRadioButton("Поле  5x5"));
+            backgroundLevelChange = new Background(gameProperties.getImages().getBgAbout()).getImagePanel();
+
+            backgroundLevelChange.setLayout(null);
+            backgroundLevelChange.add(jlLevel = new JLabel("Выберите сложность игры"));
+            backgroundLevelChange.add(jbStartGame = new JButton(new ImageIcon(gameProperties.getImages().getButtonStartLevel())));
+            backgroundLevelChange.add(jbCancel = new JButton(new ImageIcon(gameProperties.getImages().getButtonExitLevel())));
+            backgroundLevelChange.add(jrb3x3 = new JRadioButton("Поле 3x3"));
+            backgroundLevelChange.add(jrb4x4 = new JRadioButton("Поле 4x4", true));
+            backgroundLevelChange.add(jrb5x5 = new JRadioButton("Поле  5x5"));
             jlLevel.setHorizontalAlignment(SwingConstants.CENTER);
             jrb3x3.setOpaque(false);
             jrb3x3.setFocusPainted(false);
@@ -171,7 +159,7 @@ public class Menu {
             jrb5x5.setBounds(50, 80, 100, 10);
             jbStartGame.setBounds(45, 110, 102, 29);
             jbCancel.setBounds(45, 140, 102, 29);
-            jdLevel.add(ipLevel);
+            jdLevel.add(backgroundLevelChange);
             jrb3x3.addActionListener(this);
             jrb4x4.addActionListener(this);
             jrb5x5.addActionListener(this);
