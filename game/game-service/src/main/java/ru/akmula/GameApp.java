@@ -14,8 +14,10 @@ public class GameApp {
         System.setProperty("java.awt.headless", "false");
         ApplicationContext context = SpringApplication.run(GameApp.class, args);
         EventQueue.invokeLater(() -> {
-            ru.akmula.game.Menu mainFrame = context.getBean(Menu.class);
-           mainFrame.init();
+            Menu window = context.getBean(Menu.class);
+        //   mainFrame.init();
+            window.init();
+            //window.setVisible(true);
         });
     }
 }

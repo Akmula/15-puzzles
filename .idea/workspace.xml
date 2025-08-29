@@ -4,16 +4,39 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89737589-0b87-4f83-9d12-3f11679acfbb" name="Changes" comment="" />
+    <list default="true" id="89737589-0b87-4f83-9d12-3f11679acfbb" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Background.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/ButtonHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/enums/ButtonsName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/GameApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/GameApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/ImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/ImagePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/resources/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/application.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/GameApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/GameApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/config/GameProperties$Images.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/config/GameProperties$Images.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/config/GameProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/config/GameProperties.class" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="refactoring" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -38,28 +61,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Maven.15-puzzle [clean].executor": "Run",
-    "Maven.15-puzzle [compile].executor": "Run",
-    "RequestMappingsPanelOrder0": "0",
-    "RequestMappingsPanelOrder1": "1",
-    "RequestMappingsPanelWidth0": "75",
-    "RequestMappingsPanelWidth1": "75",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "Spring Boot.GameApp.executor": "Run",
-    "git-widget-placeholder": "refactoring",
-    "junie.onboarding.icon.badge.shown": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "to.speed.mode.migration.done": "true",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Maven.15-puzzle [clean].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.15-puzzle [compile].executor&quot;: &quot;Run&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;Spring Boot.GameApp.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main-frame&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="GameApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="game-service" />
@@ -76,6 +100,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Spring Boot.GameApp" />
+        <item itemvalue="Spring Boot.GameApp" />
         <item itemvalue="Spring Boot.GameApp" />
       </list>
     </recent_temporary>
@@ -96,15 +122,14 @@
       <option name="presentableId" value="Default" />
       <updated>1756228066436</updated>
       <workItem from="1756228083664" duration="8364000" />
+      <workItem from="1756308416461" duration="11960000" />
+      <workItem from="1756362314949" duration="9420000" />
+      <workItem from="1756451032492" duration="13581000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="VcsManagerConfiguration">
-    <MESSAGE value="Сделать отдельный класс для фона" />
-    <option name="LAST_COMMIT_MESSAGE" value="Сделать отдельный класс для фона" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

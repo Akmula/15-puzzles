@@ -7,6 +7,7 @@ import java.awt.*;
 
 @Setter
 public class ImagePanel extends JPanel {
+
     private Image image;
 
     public void paintComponent(Graphics g) {
