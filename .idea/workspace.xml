@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="89737589-0b87-4f83-9d12-3f11679acfbb" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/GameApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/GameApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/config/GameProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/config/GameProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/dto/NewScoreDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/dto/NewScoreDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/repository/ScoreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/repository/ScoreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/service/ScoreService.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/service/ScoreService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/service/ScoreServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/score/service/ScoreServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/GameApp.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/config/GameProperties$Images.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/config/GameProperties.class" beforeDir="false" />
-    </list>
+    <list default="true" id="89737589-0b87-4f83-9d12-3f11679acfbb" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,21 +18,21 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "Akmula"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;Akmula&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Akmula/15.git",
-    "accountId": "f0e31fc9-e18b-44c1-a409-cbd17b1e64ed"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Akmula/15.git&quot;,
+    &quot;accountId&quot;: &quot;f0e31fc9-e18b-44c1-a409-cbd17b1e64ed&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="31pjkBWnEk6CpZ3t0dttYd29BOM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -63,7 +49,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.GameApp.executor": "Run",
-    "git-widget-placeholder": "minor-edits",
+    "git-widget-placeholder": "refactoring",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -115,6 +101,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Сделать отдельный класс для фона" />
+    <option name="LAST_COMMIT_MESSAGE" value="Сделать отдельный класс для фона" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
