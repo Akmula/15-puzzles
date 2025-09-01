@@ -3,6 +3,7 @@ package ru.akmula.game;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import ru.akmula.ParentFrame;
 import ru.akmula.config.GameProperties;
 import ru.akmula.score.service.ScoreService;
 
@@ -19,7 +20,7 @@ public class Menu {
     private final GameProperties gameProperties;
     private final ScoreService scoreService;
 
-    JFrame MenuFrame;
+    JFrame menuFrame;
     ImagePanel backgroundMainFrame;
     JPanel buttonPanel;
     JButton startButton;
@@ -28,14 +29,10 @@ public class Menu {
     JButton exitButton;
     int level = 4;
 
-    public void init() {
+    public void start() {
         log.info("Создаем фрейм!");
         // ---------- Окно меню
-        MenuFrame = new JFrame(gameProperties.getTitle());
-        MenuFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(gameProperties.getIcon()));
-        MenuFrame.setBounds(550, 150, 300, 450);
-        MenuFrame.setResizable(false);
-        MenuFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        menuFrame = new ParentFrame(gameProperties);
 
         backgroundMainFrame = new Background(gameProperties.getImages().getBgMenu()).getImagePanel();
 
@@ -46,8 +43,8 @@ public class Menu {
         buttonPanel.add(exitButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonExit())));
         backgroundMainFrame.add(buttonPanel).setBounds(65, 102, 169, 196);
         backgroundMainFrame.setLayout(null);
-        MenuFrame.add(backgroundMainFrame);
-        MenuFrame.setVisible(true);
+        menuFrame.add(backgroundMainFrame);
+        menuFrame.setVisible(true);
 
         // ---------- Вешаем обработчики
         // ---------- Старт
@@ -117,7 +114,7 @@ public class Menu {
         HelpFrame.setVisible(true);
     }
 
-    public class LevelChange implements ActionListener {
+    private class LevelChange implements ActionListener {
         JDialog jdLevel;
         JLabel jlLevel;
         ImagePanel backgroundLevelChange;
@@ -127,7 +124,7 @@ public class Menu {
         JRadioButton jrb4x4;
         JRadioButton jrb5x5;
 
-        LevelChange() {
+       private LevelChange() {
             jdLevel = new JDialog();
             jdLevel.setModal(true);
             jdLevel.setResizable(false);
@@ -168,7 +165,7 @@ public class Menu {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     jdLevel.dispose();
-                    MenuFrame.dispose();
+                    menuFrame.dispose();
                     new Game(level, gameProperties, scoreService).createField();
                 }
             });
