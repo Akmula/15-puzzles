@@ -15,9 +15,7 @@ public class GameApp {
         ApplicationContext context = SpringApplication.run(GameApp.class, args);
         EventQueue.invokeLater(() -> {
             Menu window = context.getBean(Menu.class);
-        //   mainFrame.init();
-            window.init();
-            //window.setVisible(true);
+            window.start();
         });
     }
 }

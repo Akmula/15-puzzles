@@ -1,6 +1,7 @@
 package ru.akmula.game;
 
 import lombok.extern.slf4j.Slf4j;
+import ru.akmula.ParentFrame;
 import ru.akmula.config.GameProperties;
 import ru.akmula.score.dto.NewScoreDto;
 import ru.akmula.score.dto.ScoreDto;
@@ -22,7 +23,7 @@ import java.util.LinkedList;
 public class Game implements ActionListener {
 
     private final ScoreService scoreService;
-    JFrame GameFrame;
+    JFrame gameFrame;
     ImagePanel backgroundGame;
     JButton newGameButton;
     JButton exitButton;
@@ -40,11 +41,7 @@ public class Game implements ActionListener {
     Game(int level, GameProperties gameProperties, ScoreService scoreService) {
         this.scoreService = scoreService;
         // ---------- Окно игры
-        GameFrame = new JFrame(gameProperties.getTitle());
-        GameFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(gameProperties.getIcon()));
-        GameFrame.setBounds(550, 150, 300, 450);
-        GameFrame.setResizable(false);
-        GameFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        gameFrame = new ParentFrame(gameProperties);
 
         backgroundGame = new Background(gameProperties.getImages().getBgMenu()).getImagePanel();
 
@@ -58,8 +55,8 @@ public class Game implements ActionListener {
         newGameButton.setBounds(25, 325, 120, 33);
         exitButton.setBounds(155, 325, 120, 33);
         clickButton.setEnabled(false);
-        GameFrame.add(backgroundGame);
-        GameFrame.setVisible(true);
+        gameFrame.add(backgroundGame);
+        gameFrame.setVisible(true);
         font = new Font("Verdana", Font.BOLD, 16 - level);
 
         // ---------- Создаем игровое поле
@@ -83,8 +80,8 @@ public class Game implements ActionListener {
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-              //  new Menu();
-                GameFrame.dispose();
+                new Menu(gameProperties, scoreService).start();
+                gameFrame.dispose();
             }
         });
     }
@@ -142,7 +139,7 @@ public class Game implements ActionListener {
     private void congratulations(String recordData, int recordClick) {
         String txt = getString(recordData, recordClick);
 
-        final JDialog EndGame = new JDialog(GameFrame, true);
+        final JDialog EndGame = new JDialog(gameFrame, true);
         JButton jbYes = new JButton("Да");
         JButton jbNo = new JButton("Нет");
         JLabel jlEndGame = new JLabel(txt);
@@ -170,7 +167,7 @@ public class Game implements ActionListener {
             public void actionPerformed(ActionEvent e) {
                // new Menu();
                 EndGame.dispose();
-                GameFrame.dispose();
+                gameFrame.dispose();
             }
         });
 
