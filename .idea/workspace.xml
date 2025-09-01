@@ -5,18 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89737589-0b87-4f83-9d12-3f11679acfbb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/ParentFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db/scores-db.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/scores-db.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/GameApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/GameApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Background.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/ImagePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/ImagePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Menu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/GameApp.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/GameApp.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Background.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Background.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/ImagePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/ImagePanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$3.class" afterDir="false" />
@@ -53,12 +51,12 @@
     &quot;assignee&quot;: &quot;Akmula&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/Akmula/15-puzzles.git",
-    "accountId": "f0e31fc9-e18b-44c1-a409-cbd17b1e64ed"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/Akmula/15-puzzles.git&quot;,
+    &quot;accountId&quot;: &quot;f0e31fc9-e18b-44c1-a409-cbd17b1e64ed&quot;
   }
-}]]></component>
+}</component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
 }</component>
@@ -78,7 +76,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "Spring Boot.GameApp.executor": "Run",
-    "git-widget-placeholder": "parent__frame",
+    "git-widget-placeholder": "image__panel",
     "junie.onboarding.icon.badge.shown": "true",
     "kotlin-language-version-configured": "true",
     "node.js.detected.package.eslint": "true",
@@ -132,10 +130,23 @@
       <workItem from="1756362314949" duration="9420000" />
       <workItem from="1756451032492" duration="13581000" />
     </task>
+    <task id="LOCAL-00001" summary="Создать отдельный класс для создания фрейма">
+      <option name="closed" value="true" />
+      <created>1756717741942</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1756717741942</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Создать отдельный класс для создания фрейма" />
+    <option name="LAST_COMMIT_MESSAGE" value="Создать отдельный класс для создания фрейма" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

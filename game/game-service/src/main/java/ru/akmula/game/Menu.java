@@ -21,7 +21,7 @@ public class Menu {
     private final ScoreService scoreService;
 
     JFrame menuFrame;
-    ImagePanel backgroundMainFrame;
+    ImagePanel imagePanelMenu;
     JPanel buttonPanel;
     JButton startButton;
     JButton aboutButton;
@@ -34,16 +34,16 @@ public class Menu {
         // ---------- Окно меню
         menuFrame = new ParentFrame(gameProperties);
 
-        backgroundMainFrame = new Background(gameProperties.getImages().getBgMenu()).getImagePanel();
+        imagePanelMenu = new ImagePanel(gameProperties.getImages().getBgMenu());
 
         buttonPanel = new JPanel(new GridLayout(4, 1));
         buttonPanel.add(startButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonStart())));
         buttonPanel.add(helpButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonHelp())));
         buttonPanel.add(aboutButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonAbout())));
         buttonPanel.add(exitButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonExit())));
-        backgroundMainFrame.add(buttonPanel).setBounds(65, 102, 169, 196);
-        backgroundMainFrame.setLayout(null);
-        menuFrame.add(backgroundMainFrame);
+        imagePanelMenu.add(buttonPanel).setBounds(65, 102, 169, 196);
+        imagePanelMenu.setLayout(null);
+        menuFrame.add(imagePanelMenu);
         menuFrame.setVisible(true);
 
         // ---------- Вешаем обработчики
@@ -117,7 +117,7 @@ public class Menu {
     private class LevelChange implements ActionListener {
         JDialog jdLevel;
         JLabel jlLevel;
-        ImagePanel backgroundLevelChange;
+        ImagePanel imagePanelLevelChange;
         JButton jbStartGame;
         JButton jbCancel;
         JRadioButton jrb3x3;
@@ -129,15 +129,16 @@ public class Menu {
             jdLevel.setModal(true);
             jdLevel.setResizable(false);
             jdLevel.setIconImage(Toolkit.getDefaultToolkit().getImage(gameProperties.getIcon()));
-            backgroundLevelChange = new Background(gameProperties.getImages().getBgAbout()).getImagePanel();
 
-            backgroundLevelChange.setLayout(null);
-            backgroundLevelChange.add(jlLevel = new JLabel("Выберите сложность игры"));
-            backgroundLevelChange.add(jbStartGame = new JButton(new ImageIcon(gameProperties.getImages().getButtonStartLevel())));
-            backgroundLevelChange.add(jbCancel = new JButton(new ImageIcon(gameProperties.getImages().getButtonExitLevel())));
-            backgroundLevelChange.add(jrb3x3 = new JRadioButton("Поле 3x3"));
-            backgroundLevelChange.add(jrb4x4 = new JRadioButton("Поле 4x4", true));
-            backgroundLevelChange.add(jrb5x5 = new JRadioButton("Поле  5x5"));
+           imagePanelLevelChange = new ImagePanel(gameProperties.getImages().getBgAbout());
+
+           imagePanelLevelChange.setLayout(null);
+           imagePanelLevelChange.add(jlLevel = new JLabel("Выберите сложность игры"));
+           imagePanelLevelChange.add(jbStartGame = new JButton(new ImageIcon(gameProperties.getImages().getButtonStartLevel())));
+           imagePanelLevelChange.add(jbCancel = new JButton(new ImageIcon(gameProperties.getImages().getButtonExitLevel())));
+           imagePanelLevelChange.add(jrb3x3 = new JRadioButton("Поле 3x3"));
+           imagePanelLevelChange.add(jrb4x4 = new JRadioButton("Поле 4x4", true));
+           imagePanelLevelChange.add(jrb5x5 = new JRadioButton("Поле  5x5"));
             jlLevel.setHorizontalAlignment(SwingConstants.CENTER);
             jrb3x3.setOpaque(false);
             jrb3x3.setFocusPainted(false);
@@ -156,7 +157,7 @@ public class Menu {
             jrb5x5.setBounds(50, 80, 100, 10);
             jbStartGame.setBounds(45, 110, 102, 29);
             jbCancel.setBounds(45, 140, 102, 29);
-            jdLevel.add(backgroundLevelChange);
+           jdLevel.add(imagePanelLevelChange);
             jrb3x3.addActionListener(this);
             jrb4x4.addActionListener(this);
             jrb5x5.addActionListener(this);
