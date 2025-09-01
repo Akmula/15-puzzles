@@ -24,12 +24,12 @@ public class Game implements ActionListener {
 
     private final ScoreService scoreService;
     JFrame gameFrame;
-    ImagePanel backgroundGame;
+    ImagePanel imagePanelGame;
     JButton newGameButton;
     JButton exitButton;
     JButton clickButton;
     JButton pressButton;
-    JPanel GameField;
+    JPanel gameField;
     JButton[][] buttonsArray;
     Font font;
     int buttonClick;
@@ -43,19 +43,19 @@ public class Game implements ActionListener {
         // ---------- Окно игры
         gameFrame = new ParentFrame(gameProperties);
 
-        backgroundGame = new Background(gameProperties.getImages().getBgMenu()).getImagePanel();
+        imagePanelGame = new ImagePanel(gameProperties.getImages().getBgMenu());
 
-        backgroundGame.add(GameField = new JPanel());
-        backgroundGame.setLayout(null);
-        backgroundGame.add(newGameButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGame())));
-        backgroundGame.add(exitButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGameExit())));
-        backgroundGame.add(clickButton = new JButton(gameProperties.getTitle()));
-        GameField.setBounds(25, 25, 250, 250);
+        imagePanelGame.add(gameField = new JPanel());
+        imagePanelGame.setLayout(null);
+        imagePanelGame.add(newGameButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGame())));
+        imagePanelGame.add(exitButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonNewGameExit())));
+        imagePanelGame.add(clickButton = new JButton(gameProperties.getTitle()));
+        gameField.setBounds(25, 25, 250, 250);
         clickButton.setBounds(25, 280, 250, 35);
         newGameButton.setBounds(25, 325, 120, 33);
         exitButton.setBounds(155, 325, 120, 33);
         clickButton.setEnabled(false);
-        gameFrame.add(backgroundGame);
+        gameFrame.add(imagePanelGame);
         gameFrame.setVisible(true);
         font = new Font("Verdana", Font.BOLD, 16 - level);
 
@@ -68,7 +68,7 @@ public class Game implements ActionListener {
                 buttonsArray[row][col].setFont(font);
                 buttonsArray[row][col].setFocusable(false);
                 buttonsArray[row][col].addActionListener(this);
-                GameField.add(buttonsArray[row][col]);
+                gameField.add(buttonsArray[row][col]);
             }
         // ---------- Вешаем обработчики
         newGameButton.addActionListener(new ActionListener() {
@@ -90,7 +90,7 @@ public class Game implements ActionListener {
     public void createField() {
         int[] field = new int[level * level];
         LinkedList<String> ll = new LinkedList<>();
-        GameField.setLayout(new GridLayout(level, level));
+        gameField.setLayout(new GridLayout(level, level));
         buttonClick = 1;
         clickButton.setText("Вы не сделали хода");
         for (int i = 1; i < field.length; i++) {
