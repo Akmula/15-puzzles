@@ -1,7 +1,6 @@
 package ru.akmula.game;
 
 import lombok.extern.slf4j.Slf4j;
-import ru.akmula.ParentFrame;
 import ru.akmula.config.GameProperties;
 import ru.akmula.score.dto.NewScoreDto;
 import ru.akmula.score.dto.ScoreDto;
@@ -80,7 +79,7 @@ public class Game implements ActionListener {
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                new Menu(gameProperties, scoreService).start();
+               // new Menu(gameProperties, scoreService, h).start();
                 gameFrame.dispose();
             }
         });

@@ -3,8 +3,8 @@ package ru.akmula.game;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
-import ru.akmula.ParentFrame;
 import ru.akmula.config.GameProperties;
+import ru.akmula.game.service.HelpService;
 import ru.akmula.score.service.ScoreService;
 
 import javax.swing.*;
@@ -19,6 +19,7 @@ public class Menu {
 
     private final GameProperties gameProperties;
     private final ScoreService scoreService;
+    private final HelpService helpService;
 
     JFrame menuFrame;
     ImagePanel imagePanelMenu;
@@ -27,6 +28,7 @@ public class Menu {
     JButton aboutButton;
     JButton helpButton;
     JButton exitButton;
+    JButton closeButton;
     int level = 4;
 
     public void start() {
@@ -47,6 +49,20 @@ public class Menu {
         menuFrame.setVisible(true);
 
         // ---------- Вешаем обработчики
+        closeButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonExitLevel()));
+        closeButton.setPreferredSize(new Dimension(102, 29));
+
+        closeButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                menuFrame.getContentPane().removeAll();
+                menuFrame.setTitle(gameProperties.getTitle());
+                menuFrame.getContentPane().add(imagePanelMenu);
+                menuFrame.repaint();
+                menuFrame.setVisible(true);
+            }
+        });
+
         // ---------- Старт
         startButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -58,7 +74,15 @@ public class Menu {
         helpButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Help();
+                JPanel helpPanel = new GameHelp(helpService, gameProperties).getHelp();
+
+                helpPanel.add(closeButton);
+
+                menuFrame.getContentPane().removeAll();
+                menuFrame.setTitle(gameProperties.getTitleHelp());
+                menuFrame.getContentPane().add(helpPanel);
+                menuFrame.repaint();
+                menuFrame.setVisible(true);
             }
         });
 
@@ -94,24 +118,6 @@ public class Menu {
         AboutFrame.add(jlImage);
         AboutFrame.add(jlAbout);
         AboutFrame.setVisible(true);
-    }
-
-    // --------- Помощь ---------- //
-    public void Help() {
-        String txt = "<html><center><H2>Помощь</H2><br>" +
-                     "Цель игры — выстроить или переместить костяшки слева на право по возрастанию в коробке и тем самым " +
-                     "добиться упорядочивания их по номерам. При этом ставится дополнительная задача - сделать как можно " +
-                     "меньше ходов.<br>" +
-                     "Для перемещения костяшки нажмите на ту, которую необходимо переместить, и она автоматически " +
-                     "переместится.</center></html>";
-        JFrame HelpFrame = new JFrame("Справка");
-        JLabel jlHelp = new JLabel(txt);
-        jlHelp.setHorizontalAlignment(SwingConstants.CENTER);
-        jlHelp.setVerticalAlignment(SwingConstants.TOP);
-        HelpFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(gameProperties.getIcon()));
-        HelpFrame.setBounds(550, 150, 300, 450);
-        HelpFrame.add(jlHelp);
-        HelpFrame.setVisible(true);
     }
 
     private class LevelChange implements ActionListener {
