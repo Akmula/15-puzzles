@@ -2,6 +2,7 @@ package ru.akmula.game;
 
 import lombok.extern.slf4j.Slf4j;
 import ru.akmula.config.GameProperties;
+import ru.akmula.game.panel.ImagePanel;
 import ru.akmula.score.dto.NewScoreDto;
 import ru.akmula.score.dto.ScoreDto;
 import ru.akmula.score.service.ScoreService;
@@ -69,6 +70,7 @@ public class Game implements ActionListener {
                 buttonsArray[row][col].addActionListener(this);
                 gameField.add(buttonsArray[row][col]);
             }
+
         // ---------- Вешаем обработчики
         newGameButton.addActionListener(new ActionListener() {
             @Override
@@ -76,10 +78,11 @@ public class Game implements ActionListener {
                 createField();
             }
         });
+
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               // new Menu(gameProperties, scoreService, h).start();
+              // new Menu(gameProperties, scoreService).start();
                 gameFrame.dispose();
             }
         });
