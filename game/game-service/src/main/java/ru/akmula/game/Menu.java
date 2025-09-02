@@ -51,6 +51,7 @@ public class Menu {
         // ---------- Вешаем обработчики
         closeButton = new JButton(new ImageIcon(gameProperties.getImages().getButtonExitLevel()));
         closeButton.setPreferredSize(new Dimension(102, 29));
+       // closeButton.setBounds(65, 29, 169, 29);
 
         closeButton.addActionListener(new ActionListener() {
             @Override
@@ -75,7 +76,6 @@ public class Menu {
             @Override
             public void actionPerformed(ActionEvent e) {
                 JPanel helpPanel = new GameHelp(helpService, gameProperties).getHelp();
-
                 helpPanel.add(closeButton);
 
                 menuFrame.getContentPane().removeAll();
@@ -90,7 +90,13 @@ public class Menu {
         aboutButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                About();
+                JPanel aboutPanel = new GameAbout(gameProperties).getAbout();
+                aboutPanel.add(closeButton, BorderLayout.EAST);
+                menuFrame.getContentPane().removeAll();
+                menuFrame.setTitle(gameProperties.getTitleAbout());
+                menuFrame.getContentPane().add(aboutPanel);
+                menuFrame.repaint();
+                menuFrame.setVisible(true);
             }
         });
 
@@ -101,23 +107,6 @@ public class Menu {
                 System.exit(0);
             }
         });
-    }
-
-    // --------- О программе ---------- //
-    public void About() {
-        String txt = "<html><center><H2>О программе</H2><br>" +
-                     "v.1.00</center></html>";
-        JFrame AboutFrame = new JFrame("О программе");
-        JLabel jlImage = new JLabel(new ImageIcon(gameProperties.getLogo()));
-        JLabel jlAbout = new JLabel(txt);
-        jlAbout.setHorizontalAlignment(SwingConstants.CENTER);
-        jlAbout.setVerticalAlignment(SwingConstants.TOP);
-        AboutFrame.setIconImage(Toolkit.getDefaultToolkit().getImage(gameProperties.getIcon()));
-        AboutFrame.setBounds(550, 150, 300, 450);
-        AboutFrame.setLayout(new GridLayout(2, 1));
-        AboutFrame.add(jlImage);
-        AboutFrame.add(jlAbout);
-        AboutFrame.setVisible(true);
     }
 
     private class LevelChange implements ActionListener {

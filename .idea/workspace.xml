@@ -5,35 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="89737589-0b87-4f83-9d12-3f11679acfbb" name="Changes" comment="Сделать установку фона сразу в ImagePanel">
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/GameHelp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/entity/Help.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/repository/GameRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/service/HelpService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/service/HelpServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_08_2025_0_22_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_25_08_2025_0_22__Changes_.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/GameAbout.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/scores-db.mv.db" beforeDir="false" afterPath="$PROJECT_DIR$/db/scores-db.mv.db" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/ParentFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/ParentFrame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/config/GameProperties.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/config/GameProperties.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/java/ru/akmula/game/Menu.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/src/main/resources/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/resources/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/src/main/resources/shema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/src/main/resources/shema.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/application.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/application.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/images/bg-about.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/images/bg-about.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/ParentFrame.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/config/GameProperties$Images.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/config/GameProperties$Images.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/config/GameProperties.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/config/GameProperties.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Background.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game$4.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/ImagePanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/ImagePanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$3.class" afterDir="false" />
@@ -42,7 +21,6 @@
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$LevelChange$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$LevelChange$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$LevelChange.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu$LevelChange.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/ru/akmula/game/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/game/game-service/target/classes/shema.sql" beforeDir="false" afterPath="$PROJECT_DIR$/game/game-service/target/classes/shema.sql" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,29 +78,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Maven.15-puzzle [clean].executor&quot;: &quot;Run&quot;,
-    &quot;Maven.15-puzzle [compile].executor&quot;: &quot;Run&quot;,
-    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
-    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
-    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
-    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;Spring Boot.GameApp.executor&quot;: &quot;Run&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;game__help&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Maven.15-puzzle [clean].executor": "Run",
+    "Maven.15-puzzle [compile].executor": "Run",
+    "RequestMappingsPanelOrder0": "0",
+    "RequestMappingsPanelOrder1": "1",
+    "RequestMappingsPanelWidth0": "75",
+    "RequestMappingsPanelWidth1": "75",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "Spring Boot.GameApp.executor": "Run",
+    "git-widget-placeholder": "about",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.akmula.game" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="GameApp" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="game-service" />
@@ -182,7 +165,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Создать отдельный класс для создания фрейма" />
-    <option name="LAST_COMMIT_MESSAGE" value="Создать отдельный класс для создания фрейма" />
+    <MESSAGE value="Изменить помощь по игре." />
+    <option name="LAST_COMMIT_MESSAGE" value="Изменить помощь по игре." />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

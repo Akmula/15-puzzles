@@ -14,6 +14,7 @@ public class GameProperties {
 
     String title;
     String titleHelp;
+    String titleAbout;
     String version;
     String icon;
     String logo;
