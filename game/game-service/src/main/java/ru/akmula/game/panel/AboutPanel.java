@@ -1,4 +1,4 @@
-package ru.akmula.game;
+package ru.akmula.game.panel;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -9,10 +9,9 @@ import java.awt.*;
 
 @Component
 @RequiredArgsConstructor
-public class GameAbout extends JPanel {
+public class AboutPanel extends JPanel {
 
     private final GameProperties gameProperties;
-    ImagePanel imagePanel;
 
     public JPanel getAbout() {
 
@@ -23,7 +22,7 @@ public class GameAbout extends JPanel {
                      "</center> " +
                      "</html>";
 
-        imagePanel = new ImagePanel(gameProperties.getImages().getBgAbout());
+        ImagePanel imagePanel = new ImagePanel(gameProperties.getImages().getBgAbout());
 
         JLabel jlImage = new JLabel(new ImageIcon(gameProperties.getLogo()));
         JLabel jlAbout = new JLabel(txt);

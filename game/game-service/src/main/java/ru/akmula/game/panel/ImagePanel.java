@@ -1,4 +1,4 @@
-package ru.akmula.game;
+package ru.akmula.game.panel;
 
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
