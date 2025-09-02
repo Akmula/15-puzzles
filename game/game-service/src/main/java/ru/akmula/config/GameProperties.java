@@ -13,6 +13,7 @@ import org.springframework.context.annotation.Configuration;
 public class GameProperties {
 
     String title;
+    String titleHelp;
     String version;
     String icon;
     String logo;
@@ -33,6 +34,6 @@ public class GameProperties {
         String buttonNewGameExit;
         String buttonStart;
         String buttonStartLevel;
-
+        String buttonClose;
     }
 }

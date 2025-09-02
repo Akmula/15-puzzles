@@ -9,10 +9,11 @@ spring:
 
   # в jdbc-url укажите, что данные нужно сохранять в файл
   datasource:
-    url: jdbc:h2:file:./db/scores-db
+    url: jdbc:h2:file:./db/game-db
     driverClassName: org.h2.Driver
-    username: scores
-    password: scores
+    username: puzzle
+    password: puzzle
+
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
@@ -30,6 +31,7 @@ logging:
 game-service:
   path-images: game/game-service/src/main/resources/images/
   title: Пятнашки
+  title-help: Помощь по игре
   version: 1.1.0
   icon: ${game-service.path-images}icon.png
   logo: ${game-service.path-images}logo.jpg
@@ -45,3 +47,4 @@ game-service:
     button-new-game-exit: ${game-service.path-images}button-new-game-exit.jpg
     button-start: ${game-service.path-images}button-start.jpg
     button-start-level: ${game-service.path-images}button-start-level.jpg
+    button-close: ${game-service.path-images}button-close.jpg
